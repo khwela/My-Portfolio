@@ -50,7 +50,8 @@ ul{
     bottom: 0;
     z-index: 0;
     overflow-y: auto;
-  
+  overflow-x: hidden;
+  transform: all 0.3s ease;
    
 }
 .section.back-section{
@@ -161,6 +162,7 @@ ul{
     z-index: 10;
     display: flex;
     align-items: center;
+    transform: all 0.3s ease;
 }
 .aside .logo{
     position: absolute;
@@ -180,6 +182,9 @@ letter-spacing: 5px;
 .aside .logo a span{
 font-family: 'clicker script', cursive;
 font-size: 40px;
+}
+.aside .nav-toggler.open span{
+    background-color: transparent;
 }
 .aside .logo a::before{
     content: "";
@@ -215,6 +220,7 @@ font-size: 40px;
     display: none;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 .aside .nav-toggler span{
     height: 2px;
@@ -222,6 +228,9 @@ font-size: 40px;
     background: var(--skin-color);
     display: inline-block;
     position: relative;
+}
+.aside .nav-toggler.open span{
+    background-color: transparent;
 }
 aside .nav-toggler span::before{
     content: "";
@@ -231,6 +240,14 @@ aside .nav-toggler span::before{
     position: absolute;
     top: -6px;
      left:0;
+}
+.aside .nav-toggler.open span::before{
+    transform: rotate(45deg);
+    top: 0;
+}
+.aside .nav-toggler.open span::after{
+    transform: rotate(-45deg);
+    top: 0;
 }
 aside .nav-toggler span::after{
     content: "";
@@ -684,12 +701,21 @@ box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
     .aside{
         left: -270px;
     }
+    .aside.open{
+        left: 0;
+    }
  .aside .nav-toggler{
     display: flex;
     left: 30px;
  }
+ .aside .nav-toggler.open{
+    left: 300px;
+ }
  .section{
     left: 0;
+ }
+ .section.open{
+    left: 270px;
  }
    .about .about-content .personal-info .info-item p span{
 display: block;
@@ -724,5 +750,6 @@ margin-left: 0;
         max-width: 100%;
     }
  }
+
  
 
